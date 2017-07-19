@@ -1,0 +1,52 @@
+<h1>{{name}}</h1>
+<ul>
+  <li>Age: {{age}}</li>
+  <li>Address Street {{address.street}}</li>
+  <li>Address City {{address.city}}</li>
+  <li>Address State {{address.state}}</li>
+</ul>
+
+<h1>Buttons</h1>
+
+<button (click)="clickMe()">Something is about to happen</button>
+
+<h1>Forms</h1>
+
+<form (submit)="addHobby(hobby.value)">
+  <div>
+    <label for="hobby">Enter Hobby: </label>
+    <input type="text" id="hobby" #hobby>
+  </div>
+</form>
+
+<h1>Hobbies</h1>
+
+<ul>
+  <li *ngFor="let hobby of hobbies; let i = index">{{i}}: {{hobby}} -- <button (click)="delHobby(i)">Delete me</button></li>
+</ul>
+
+
+<h1>Two way data binding</h1>
+
+<form>
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" id="name" [(ngModel)]="name" name="name">
+  </div>
+  <div>
+    <label for="age">Age: </label>
+    <input type="text" name="age" [(ngModel)]="age" id="age">
+  </div>
+  <div>
+    <label for="street">Street: </label>
+    <input type="text" id="street" [(ngModel)]="address.street" name="street">
+  </div>
+  <div>
+    <label for="city">City: </label>
+    <input type="text" id="city" [(ngModel)]="address.city" name="city">
+  </div>
+  <div>
+    <label for="state">State: </label>
+    <input type="text" id="state" [(ngModel)]="address.state" name="state ">
+  </div>
+</form>
